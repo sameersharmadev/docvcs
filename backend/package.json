@@ -1,13 +1,14 @@
 {
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
     "jsonwebtoken": "^9.0.2",
     "nodemailer": "^7.0.5",
-    "pg": "^8.16.3",
     "rimraf": "^4.4.1",
     "socket.io": "^4.8.1"
   },
@@ -17,19 +18,21 @@
   "main": "index.js",
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
+    "@types/bcryptjs": "^2.4.6",
     "@types/cookie-parser": "^1.4.9",
     "@types/cors": "^2.8.19",
     "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.3.0",
+    "@types/nodemailer": "^7.0.1",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.2"
   },
   "type": "module",
   "scripts": {
-    "dev": "npx ts-node index.ts",
+    "dev": "npx ts-node-esm index.ts",
     "build": "tsc",
     "start": "node dist/server.js"
   },
