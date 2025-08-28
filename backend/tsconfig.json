@@ -21,7 +21,8 @@
     "routes/**/*.ts",
     "services/**/*.ts",
     "utils/**/*.ts",
-    "config/**/*.ts"
+    "config/**/*.ts",
+    "types/**/*d.ts"
   ],
   "exclude": [
     "node_modules",

@@ -42,7 +42,13 @@ export const login = async (req: Request, res: Response) => {
     }
 
     const token = jwt.sign({ id: user.user_id, role: user.role }, JWT_SECRET, { expiresIn: "1h" });
-    res.json({ token });
+    res.cookie("token",token,{
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        maxAge: 60*60*1000
+    })
+    res.json({message: "Login successful"})
 
 }
 
@@ -130,7 +136,13 @@ export const verifyEmail = async (req: Request, res: Response) => {
             expiresIn: "1h",
         });
 
-        res.json({ message: "Email verified successfully!", token: authToken });
+        res.cookie("token",authToken,{
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "strict",
+            maxAge: 60*60*1000
+        })
+        res.json({ message: "Email verified successfully!" });
     } catch (err) {
         res.status(400).json({ message: "Invalid or expired token" });
     }
